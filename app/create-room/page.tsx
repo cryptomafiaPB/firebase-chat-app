@@ -7,10 +7,12 @@ import React, { useState } from "react";
 import { db } from "@/fireabase-config";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 function Create() {
   const [roomname, setRoomName] = useState("");
   const { user } = useUser();
+  const router = useRouter();
   console.log(user?.id);
   const createRoom = async () => {
     console.log("InCraeteRoom");
@@ -23,7 +25,7 @@ function Create() {
         // Other fields like participants, etc.
       });
       console.log("Room created with ID: ", docRef.id);
-      window.location.href = `/chat/${docRef.id}`; // Redirect to created room
+      router.push(`/chat/${roomname}`); // Redirect to created room
     } catch (error) {
       console.error("Error creating room: ", error);
     }

@@ -5,9 +5,11 @@ import { UserButton } from "@clerk/nextjs";
 import { doc, getDoc } from "firebase/firestore";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 function Join() {
+  const router = useRouter();
   const [roomname, setRoomName] = useState("");
   const joinRoom = async () => {
     console.log("Join");
@@ -15,7 +17,7 @@ function Join() {
       const docSnap = await getDoc(doc(db, "rooms", roomname));
       if (docSnap.exists()) {
         console.log(docSnap.data());
-        window.location.href = `/chat/${roomname}`;
+        router.push(`/chat/${roomname}`);
         // Redirect to created room
         return docSnap.data();
       } else {
