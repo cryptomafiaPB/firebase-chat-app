@@ -1,16 +1,14 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { UserButton, useUser } from "@clerk/nextjs";
-import { getDatabase } from "firebase/database";
-import { Firestore, addDoc, collection } from "firebase/firestore";
+
+import { addDoc, collection } from "firebase/firestore";
 import React, { useState } from "react";
 import { db } from "@/fireabase-config";
-import { ChevronLeft, StepBackIcon } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
-// import { useRouter } from "next/router";
 
 function Create() {
-  //   const router = useRouter();
   const [roomname, setRoomName] = useState("");
   const { user } = useUser();
   console.log(user?.id);

@@ -22,8 +22,7 @@ function Chat() {
   const room = params.chatid;
   const [loading, setLoading] = useState(true);
   const [messages, setMessages] = useState<Message[]>([]);
-  const realtimeDb = getDatabase();
-  // const roomMessagesRef = ref(realtimeDb, `rooms/${room}/messages`);
+
   const getFormattedRecentMessages = async (roomId: string) => {
     try {
       const q = query(
