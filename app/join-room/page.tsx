@@ -22,12 +22,13 @@ function Join() {
         return docSnap.data();
       } else {
         console.error("Room not found");
+        alert("Room not found!!")
         // Inform user that the room doesn't exist
         return console.log("Null");
       }
     } catch (error) {
       console.error("Error getting room: ", error);
-      alert("Room not found!!")
+      
       // Handle any errors during data retrieval
     }
   };
