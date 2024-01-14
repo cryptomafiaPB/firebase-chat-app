@@ -27,6 +27,7 @@ function Join() {
       }
     } catch (error) {
       console.error("Error getting room: ", error);
+      alert("Room not found!!")
       // Handle any errors during data retrieval
     }
   };
